@@ -1,0 +1,37 @@
+Feature name,Ranking,Support
+Latitude,1,True
+Longitude,1,True
+PopulationDensityM,1,True
+distanceToTrainStation,1,True
+gde_politics_svp,1,True
+gde_pop_per_km2,1,True
+rooms,1,True
+Floor space_m2,1,True
+Plot area_m2,1,True
+living_space_m2,1,True
+price,1,True
+ForestDensityM,2,False
+gde_politics_bdp,2,False
+gde_politics_glp,2,False
+gde_politics_rights,4,False
+gde_politics_pda,5,False
+NoisePollutionRoadM,6,False
+gde_politics_evp,7,False
+gde_average_house_hold,8,False
+gde_tax,8,False
+gde_area_forest_percentage,10,False
+gde_population,10,False
+gde_area_nonproductive_percentage,12,False
+gde_politics_cvp,13,False
+gde_area_agriculture_percentage,14,False
+gde_foreigners_percentage,15,False
+gde_politics_sp,15,False
+gde_politics_fdp,17,False
+gde_politics_gps,18,False
+gde_empty_apartments,19,False
+gde_new_homes_per_1000,20,False
+gde_workers_sector1,21,False
+gde_social_help_quota,22,False
+NoisePollutionRailwayM,23,False
+RiversAndLakesM,24,False
+RiversAndLakesS,25,False
