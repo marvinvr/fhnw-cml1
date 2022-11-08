@@ -1,6 +1,7 @@
 # Training functions
 from sklearn import linear_model, ensemble, neural_network
 from sklearn.metrics import mean_absolute_percentage_error
+from sklearn.model_selection import GridSearchCV
 import pandas as pd
 
 
@@ -75,14 +76,25 @@ def train_quantile_regression(X_train: pd.DataFrame, X_test: pd.DataFrame, y_tra
 ## Ensemble
 
 ### Random Forest
-def train_random_forest(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series) -> dict:
-    model = ensemble.RandomForestRegressor(max_features='sqrt', n_jobs=-1, random_state=2**12)
-    model.fit(X_train, y_train)
+def train_random_forest(X: pd.DataFrame, X_train: pd.DataFrame, X_test: pd.DataFrame, y: pd.Series, y_train: pd.Series, y_test: pd.Series) -> dict:
+    parameters = {
+        'bootstrap': [True, False],
+        'max_depth': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, None],
+        'min_samples_leaf': [1, 2, 4],
+        'min_samples_split': [1, 2],
+        'n_estimators': [100, 200, 300, 1000]
+    }
+
+    model = GridSearchCV(ensemble.RandomForestRegressor(), parameters, scoring='neg_mean_absolute_percentage_error', cv=5, n_jobs=-1)
+    model.fit(X, y)
+
+    best_model = model.best_estimator_
+    best_model.fit(X_train, y_train)
 
     return {
-        "columns": list(X_train.columns),
-        "num_columns": len(X_train.columns),
-        "score": mean_absolute_percentage_error(y_test, model.predict(X_test)),
+        "columns": list(X.columns),
+        "num_columns": len(y.columns),
+        "score": mean_absolute_percentage_error(y_test, best_model.predict(X_test)),
         "model": model
     }
 
