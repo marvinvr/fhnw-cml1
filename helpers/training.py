@@ -76,25 +76,44 @@ def train_quantile_regression(X_train: pd.DataFrame, X_test: pd.DataFrame, y_tra
 ## Ensemble
 
 ### Random Forest
-def train_random_forest(X: pd.DataFrame, X_train: pd.DataFrame, X_test: pd.DataFrame, y: pd.Series, y_train: pd.Series, y_test: pd.Series) -> dict:
+def train_random_forest(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series) -> dict:
     parameters = {
-        'bootstrap': [True, False],
-        'max_depth': [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, None],
-        'min_samples_leaf': [1, 2, 4],
-        'min_samples_split': [1, 2],
-        'n_estimators': [100, 200, 300, 1000]
+        'bootstrap': [True],
+        'min_samples_leaf': [2, 3, 4],
+        'min_samples_split': [2, 3, 4],
+        'n_estimators': [50, 100, 150],
+        'random_state': [42],
+        'max_features': ['sqrt'],
+        'n_jobs': [-1]
     }
 
     model = GridSearchCV(ensemble.RandomForestRegressor(), parameters, scoring='neg_mean_absolute_percentage_error', cv=5, n_jobs=-1)
-    model.fit(X, y)
-
-    best_model = model.best_estimator_
-    best_model.fit(X_train, y_train)
+    model.fit(X_train, y_train)
 
     return {
-        "columns": list(X.columns),
-        "num_columns": len(y.columns),
-        "score": mean_absolute_percentage_error(y_test, best_model.predict(X_test)),
+        "columns": list(X_test.columns),
+        "num_columns": len(X_test.columns),
+        "score": mean_absolute_percentage_error(y_test, model.predict(X_test)),
+        "model": model
+    }
+
+### Gradient Boosting
+def train_gradient_boosting(X_train: pd.DataFrame, X_test: pd.DataFrame, y_train: pd.Series, y_test: pd.Series) -> dict:
+    parameters = {
+        'min_samples_leaf': [2, 3, 4],
+        'min_samples_split': [2, 3, 4],
+        'n_estimators': [50, 100, 150],
+        'random_state': [42],
+        'max_features': ['sqrt'],
+        'n_jobs': [-1]
+    }
+    model = ensemble.GradientBoostingRegressor()
+    model.fit(X_train, y_train)
+
+    return {
+        "columns": list(X_train.columns),
+        "num_columns": len(X_train.columns),
+        "score": mean_absolute_percentage_error(y_test, model.predict(X_test)),
         "model": model
     }
 
