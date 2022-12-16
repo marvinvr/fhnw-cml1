@@ -78,6 +78,26 @@ def train_gradient_boosting_robust(X_train: pd.DataFrame,
                          parameters,
                          ensemble.GradientBoostingRegressor, -1)
 
+def train_gradient_boosting_v1(X_train: pd.DataFrame,
+                            X_test: pd.DataFrame,
+                            y_train: pd.Series,
+                            y_test: pd.Series) -> dict:
+    parameters = {
+        'loss': ['absolute_error'],
+        'max_depth': [19],  #[26],
+        'min_samples_split': [2],
+        'min_samples_leaf': [12],
+        'max_features': ['sqrt'],
+        'n_estimators': [120],
+        'random_state': [42]
+    }
+
+    # NOT WORKING, TRANSFORMED KAGGLE
+
+    return _run_training(X_train, X_test, y_train, y_test,
+                         parameters,
+                         ensemble.GradientBoostingRegressor, -1)
+
 
 ## Neural Network
 ### MLP Regressor
