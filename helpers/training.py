@@ -49,7 +49,7 @@ def train_gradient_boosting(X_train: pd.DataFrame,
         'tree_method': ['gpu_hist'],
         'gpu_id': [0],
 
-        'max_depth': [16],
+        'max_depth': [20],
         'max_leaves': [0],
         'n_estimators': [110],
         'seed': [42],
