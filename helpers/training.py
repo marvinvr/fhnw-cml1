@@ -46,18 +46,20 @@ def train_gradient_boosting(X_train: pd.DataFrame,
                             y_train: pd.Series,
                             y_test: pd.Series) -> dict:
     parameters = {
-        'loss': ['absolute_error'],
-        'max_depth': [20],  #[26],
-        'min_samples_split': [2],
-        'min_samples_leaf': [12],
-        'max_features': ['sqrt'],
-        'n_estimators': [120],
-        'random_state': [42]
+        'tree_method': ['gpu_hist'],
+        'gpu_id': [0],
+
+        'max_depth': [16],
+        'max_leaves': [0],
+        'n_estimators': [110],
+        'seed': [42],
+        'lambda': [1.3],
+        'alpha': [0.05]
     }
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
-                         XGBRegressor, -1)
+                         XGBRegressor, 1)
 
 
 def train_gradient_boosting_robust(X_train: pd.DataFrame,
@@ -66,15 +68,13 @@ def train_gradient_boosting_robust(X_train: pd.DataFrame,
                             y_test: pd.Series) -> dict:
     parameters = {
         'loss': ['absolute_error'],
-        'max_depth': [20],
+        'max_depth': [17],
         'min_samples_split': [2],
-        'min_samples_leaf': [17],
+        'min_samples_leaf': [20, 21, 22],
         'max_features': ['sqrt'],
         'n_estimators': [120],
         'random_state': [42]
     }
-
-    # NOT WORKING, TRANSFORMED KAGGLE
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
