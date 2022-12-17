@@ -2,6 +2,8 @@
 from sklearn import linear_model, ensemble, neural_network
 from sklearn.metrics import mean_absolute_percentage_error
 from sklearn.model_selection import GridSearchCV
+from xgboost import XGBRegressor
+
 import pandas as pd
 import numpy as np
 
@@ -55,7 +57,7 @@ def train_gradient_boosting(X_train: pd.DataFrame,
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
-                         ensemble.GradientBoostingRegressor, -1)
+                         XGBRegressor, -1)
 
 
 def train_gradient_boosting_robust(X_train: pd.DataFrame,
