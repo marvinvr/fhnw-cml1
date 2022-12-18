@@ -84,15 +84,25 @@ def train_gradient_boosting_v1(X_train: pd.DataFrame,
                             X_test: pd.DataFrame,
                             y_train: pd.Series,
                             y_test: pd.Series) -> dict:
+    '''parameters = {
+        'loss': ['absolute_error'],
+        'max_depth': [17, 19, 21, 23, 25],  #[26],
+        'min_samples_split': [1, 2],
+        'min_samples_leaf': [12, 13, 15, 17],
+        'max_features': ['sqrt'],
+        'n_estimators': [120, 130, 140],
+        'random_state': [42]
+    }'''
     parameters = {
         'loss': ['absolute_error'],
-        'max_depth': [15, 17, 19, 21],  #[26],
-        'min_samples_split': [1, 2, 3],
-        'min_samples_leaf': [9, 11, 13],
+        'max_depth': [21],  # [26],
+        'min_samples_split': [1],
+        'min_samples_leaf': [13],
         'max_features': ['sqrt'],
-        'n_estimators': [110, 120, 130],
+        'n_estimators': [130],
         'random_state': [42]
     }
+
 
     # NOT WORKING, TRANSFORMED KAGGLE
 
