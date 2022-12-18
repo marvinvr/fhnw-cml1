@@ -86,8 +86,8 @@ def train_gradient_boosting_v1(X_train: pd.DataFrame,
                             y_test: pd.Series) -> dict:
     parameters = {
         'loss': ['absolute_error'],
-        'max_depth': [19],  #[26],
-        'min_samples_split': [2],
+        'max_depth': [17, 19, 21],  #[26],
+        'min_samples_split': [1, 2],
         'min_samples_leaf': [12],
         'max_features': ['sqrt'],
         'n_estimators': [120],
