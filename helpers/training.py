@@ -1,4 +1,6 @@
 # Training functions
+from functools import reduce
+
 from sklearn import linear_model, ensemble, neural_network
 from sklearn.metrics import mean_absolute_percentage_error
 from sklearn.model_selection import GridSearchCV
@@ -88,9 +90,9 @@ def train_gradient_boosting_v1(X_train: pd.DataFrame,
         'loss': ['absolute_error'],
         'max_depth': [23],  #[26],
         'min_samples_split': [25],
-        'min_samples_leaf': [10],
         'max_features': [0.5],
-        'n_estimators': [3_500],
+        'min_samples_leaf': [10],
+        'n_estimators': [130],
         'random_state': [42],
     }
 
@@ -113,9 +115,6 @@ def train_gradient_boosting_v1(X_train: pd.DataFrame,
         'n_estimators': [130],
         'random_state': [42]
     }'''
-
-
-    # NOT WORKING, TRANSFORMED KAGGLE
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
@@ -157,17 +156,29 @@ def _run_training(X_train: pd.DataFrame,
                   cv: int = 5
                   ) -> dict:
     print(f'Training {ModelClass.__name__} with {n_jobs} jobs')
+    print(f'Parameters: {parameters}')
 
-    model = GridSearchCV(ModelClass(),
-                         parameters,
-                         scoring='neg_mean_absolute_percentage_error',
-                         cv=cv,
-                         n_jobs=n_jobs,
-                         verbose=10)
+    if not all(len(l) < 2 for l in parameters.values()):
+        grid_search = GridSearchCV(ModelClass(),
+                             parameters,
+                             scoring='neg_mean_absolute_percentage_error',
+                             cv=cv,
+                             n_jobs=n_jobs,
+                             verbose=10)
+        grid_search.fit(X_train, y_train)
+        best_params = grid_search.best_params_
+    else:
+        best_params = reduce(
+            lambda state, key: {**state, key: parameters[key][0]},
+            parameters.keys(),
+            {})
+
+    model = ModelClass(**best_params)
     model.fit(X_train, y_train)
 
     return {
         "num_columns": len(X_train.columns),
         "score": mean_absolute_percentage_error(y_test, model.predict(X_test)),
+        "best_params": best_params,
         "model": model
     }
