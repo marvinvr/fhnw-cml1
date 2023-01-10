@@ -1,12 +1,12 @@
-from pathlib import Path
-
 from joblib import load, dump
 from sklearn.linear_model import Lasso
 from sklearn.feature_selection import SelectFromModel
 
+from helpers.paths import Paths
+
 
 def select_features(X, y, threshold=0.01) -> list:
-    path = Path('data/model/helpers/relevant_features.pkl')
+    path = Paths.REGRESSOR_RELEVANT_FEATURES_DATA
     try:
         relevant_features = load(path)
         return relevant_features

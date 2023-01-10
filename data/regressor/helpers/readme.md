@@ -1,0 +1,1 @@
+# Folder containing all helper data and caches
