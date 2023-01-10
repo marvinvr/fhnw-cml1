@@ -8,7 +8,7 @@ class Paths:
 
     # regressor
     REGRESSOR_SCALING_DATA = Path('data/regressor/02_0_scaling.dump')
-    REGRESSOR_RELEVANT_FEATURES_DATA = Path('data/regressor/helpers/relevant_features.pkl')
+    REGRESSOR_RELEVANT_FEATURES_DATA = Path('data/regressor/helpers/relevant_features.dump')
 
     @staticmethod
     def REGRESSOR_MODEL_DATA(model):
