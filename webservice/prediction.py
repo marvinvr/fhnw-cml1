@@ -4,5 +4,5 @@ import pandas as pd
 import numpy as nps
 
 def predict(data):
-    reg = joblib.load("einfaches_modell.sav")
+    reg = joblib.load("./webservice/einfaches_modell.sav")
     return reg.predict(data)
