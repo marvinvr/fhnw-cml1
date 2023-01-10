@@ -1,7 +1,11 @@
 # Training functions
+from functools import reduce
+
 from sklearn import linear_model, ensemble, neural_network
 from sklearn.metrics import mean_absolute_percentage_error
 from sklearn.model_selection import GridSearchCV
+from xgboost import XGBRegressor
+
 import pandas as pd
 import numpy as np
 
@@ -44,35 +48,35 @@ def train_gradient_boosting(X_train: pd.DataFrame,
                             y_train: pd.Series,
                             y_test: pd.Series) -> dict:
     parameters = {
-        'loss': ['absolute_error'],
-        'max_depth': [20],  #[26],
-        'min_samples_split': [2],
-        'min_samples_leaf': [12],
-        'max_features': ['sqrt'],
-        'n_estimators': [120],
-        'random_state': [42]
+        'tree_method': ['gpu_hist'],
+        'gpu_id': [0],
+
+        'max_depth': [20],
+        'max_leaves': [0],
+        'n_estimators': [110],
+        'seed': [42],
+        'lambda': [1.3],
+        'alpha': [0.05]
     }
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
-                         ensemble.GradientBoostingRegressor, -1)
+                         XGBRegressor, 1)
 
 
-def train_gradient_boosting_robust(X_train: pd.DataFrame,
+def train_gradient_boosting_v1(X_train: pd.DataFrame,
                             X_test: pd.DataFrame,
                             y_train: pd.Series,
                             y_test: pd.Series) -> dict:
     parameters = {
         'loss': ['absolute_error'],
-        'max_depth': [20],
-        'min_samples_split': [2],
-        'min_samples_leaf': [17],
-        'max_features': ['sqrt'],
-        'n_estimators': [120],
-        'random_state': [42]
+        'max_depth': [23],
+        'min_samples_split': [25],
+        'max_features': [0.5],
+        'min_samples_leaf': [10],
+        'n_estimators': [130],
+        'random_state': [42],
     }
-
-    # NOT WORKING, TRANSFORMED KAGGLE
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,
@@ -114,17 +118,29 @@ def _run_training(X_train: pd.DataFrame,
                   cv: int = 5
                   ) -> dict:
     print(f'Training {ModelClass.__name__} with {n_jobs} jobs')
+    print(f'Parameters: {parameters}')
 
-    model = GridSearchCV(ModelClass(),
-                         parameters,
-                         scoring='neg_mean_absolute_percentage_error',
-                         cv=cv,
-                         n_jobs=n_jobs,
-                         verbose=10)
+    if not all(len(l) < 2 for l in parameters.values()):
+        grid_search = GridSearchCV(ModelClass(),
+                             parameters,
+                             scoring='neg_mean_absolute_percentage_error',
+                             cv=cv,
+                             n_jobs=n_jobs,
+                             verbose=10)
+        grid_search.fit(X_train, y_train)
+        best_params = grid_search.best_params_
+    else:
+        best_params = reduce(
+            lambda state, key: {**state, key: parameters[key][0]},
+            parameters.keys(),
+            {})
+
+    model = ModelClass(**best_params)
     model.fit(X_train, y_train)
 
     return {
         "num_columns": len(X_train.columns),
         "score": mean_absolute_percentage_error(y_test, model.predict(X_test)),
+        "best_params": best_params,
         "model": model
     }
