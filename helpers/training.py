@@ -64,57 +64,19 @@ def train_gradient_boosting(X_train: pd.DataFrame,
                          XGBRegressor, 1)
 
 
-def train_gradient_boosting_robust(X_train: pd.DataFrame,
-                            X_test: pd.DataFrame,
-                            y_train: pd.Series,
-                            y_test: pd.Series) -> dict:
-    parameters = {
-        'loss': ['absolute_error'],
-        'max_depth': [17],
-        'min_samples_split': [2],
-        'min_samples_leaf': [20, 21, 22],
-        'max_features': ['sqrt'],
-        'n_estimators': [120],
-        'random_state': [42]
-    }
-
-    return _run_training(X_train, X_test, y_train, y_test,
-                         parameters,
-                         ensemble.GradientBoostingRegressor, -1)
-
 def train_gradient_boosting_v1(X_train: pd.DataFrame,
                             X_test: pd.DataFrame,
                             y_train: pd.Series,
                             y_test: pd.Series) -> dict:
     parameters = {
         'loss': ['absolute_error'],
-        'max_depth': [23],  #[26],
+        'max_depth': [23],
         'min_samples_split': [25],
         'max_features': [0.5],
         'min_samples_leaf': [10],
         'n_estimators': [130],
         'random_state': [42],
     }
-
-    '''parameters = {
-        'loss': ['absolute_error'],
-        'max_depth': [21],  #[26],
-        'min_samples_split': [1],
-        'min_samples_leaf': [9],
-        'max_features': ['sqrt'],
-        'n_estimators': [140],
-        'random_state': [42],
-    }'''
-
-    '''parameters = {
-        'loss': ['absolute_error'],
-        'max_depth': [21],  # [26],
-        'min_samples_split': [1],
-        'min_samples_leaf': [13],
-        'max_features': ['sqrt'],
-        'n_estimators': [130],
-        'random_state': [42]
-    }'''
 
     return _run_training(X_train, X_test, y_train, y_test,
                          parameters,

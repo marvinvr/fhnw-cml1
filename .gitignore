@@ -332,5 +332,5 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,visualstudiocode,pycharm
 
-# exclude every .pkl file everywhere
-*.pkl
+# exclude every .pkl file in the data folder
+data/**/*.pkl

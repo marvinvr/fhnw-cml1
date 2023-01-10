@@ -2,7 +2,7 @@ from sklearn.linear_model import Lasso
 from sklearn.feature_selection import SelectFromModel
 
 
-def select_features(X, y, threshold = 0.01) -> list:
+def select_features(X, y, threshold=0.01) -> list:
     model = Lasso()
     model.fit(X, y)
 
