@@ -23,12 +23,12 @@ columns = ([col1] * (len(features) - rows_per_column)) + ([col2] * rows_per_colu
 
 # Setup inputs
 inputs = {}
-for feature, column in zip(features, columns):
+for feature, column in zip(features.keys(), columns):
     with column:
         if feature in options.keys():
-            inputs[feature] = st.selectbox(feature, options[feature])
+            inputs[feature] = st.selectbox(features[feature]['label'], options[feature])
         else:
-            inputs[feature] = st.number_input(feature)
+            inputs[feature] = st.number_input(features[feature]['label'], step=0.5, format='%.1f', value=features[feature]['value'])
 
 # Setup button
 if st.button('Preis berechnen'):
