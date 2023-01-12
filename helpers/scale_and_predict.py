@@ -12,14 +12,17 @@ def scale_and_predict(model, metadata, inputs) -> str:
     df = pd.DataFrame({
         **inputs,
         **reduce(
-            lambda state, x: {**state, f'type_unified_{x}': 0},
-            filter(lambda x: x != inputs['type_unified'], options['type_unified']),
+            lambda state, x: {**state, f'type_unified_{x}': 1. if x == inputs['type_unified'] else 0.},
+            options['type_unified'],
             {}
         ),
         **feature_means[inputs['Zip']]
     }, index=[0])
-
-    df = pd.get_dummies(df, columns=['type_unified'])
+    
+    df.drop(['type_unified'], 
+            axis=1, 
+            inplace=True)
+    
     df = df.reindex(columns=scaler.feature_names_in_)
 
     df[df.columns] = scaler.transform(df)
