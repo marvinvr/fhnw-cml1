@@ -331,3 +331,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,visualstudiocode,pycharm
+
+# exclude every .dump file in the data folder
+data/*.dump
+data/**/*.dump
+!data/web_service/*.dump
