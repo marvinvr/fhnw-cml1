@@ -3,12 +3,14 @@ from pathlib import Path
 
 class Paths:
     # general
-    DATA_WRANGLING_DATA = Path('data/general/01_0_data_wrangling.dump')
     IMMOSCOUT_SOURCE_DATA = Path('data/source/immoscout_v2.zip')
 
     # regressor
+    REGRESSOR_DATA_WRANGLING_DATA = Path('data/regressor/01_0_data_wrangling.dump')
     REGRESSOR_SCALING_DATA = Path('data/regressor/02_0_scaling.dump')
-    REGRESSOR_RELEVANT_FEATURES_DATA = Path('data/regressor/helpers/relevant_features.dump')
+    @staticmethod
+    def REGRESSOR_RELEVANT_FEATURES_DATA(threshold):
+        return Path(f'data/regressor/helpers/relevant_features_{threshold}.dump')
 
     @staticmethod
     def REGRESSOR_MODEL_DATA(model):
@@ -24,3 +26,6 @@ class Paths:
     @staticmethod
     def KAGGLE_SUBMISSIONS_PATH(filename):
         return Path(f'data/kaggle/submissions/{filename}.csv')
+
+    # simple model
+    WEBSERVICE_META_DATA = Path('data/web_service/01_0_meta_data.dump')

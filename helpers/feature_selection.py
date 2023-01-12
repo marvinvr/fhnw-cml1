@@ -6,7 +6,7 @@ from helpers.paths import Paths
 
 
 def select_features(X, y, threshold=0.01) -> list:
-    path = Paths.REGRESSOR_RELEVANT_FEATURES_DATA
+    path = Paths.REGRESSOR_RELEVANT_FEATURES_DATA(threshold)
     try:
         relevant_features = load(path)
         return relevant_features
