@@ -335,3 +335,4 @@ $RECYCLE.BIN/
 # exclude every .dump file in the data folder
 data/*.dump
 data/**/*.dump
+!data/web_service/*.dump
