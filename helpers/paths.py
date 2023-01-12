@@ -27,5 +27,13 @@ class Paths:
     def KAGGLE_SUBMISSIONS_PATH(filename):
         return Path(f'data/kaggle/submissions/{filename}.csv')
 
-    # simple model
+    # web service
     WEBSERVICE_META_DATA = Path('data/web_service/01_0_meta_data.dump')
+
+    # classifier
+    CLASSIFIER_DATA_WRANGLING_DATA = Path('data/classifier/01_0_data_wrangling.dump')
+    CLASSIFIER_SCALING_DATA = Path('data/classifier/02_0_scaling.dump')
+
+    @staticmethod
+    def CLASSIFIER_MODEL_DATA(model):
+        return Path(f'models/classifier/{model}.dump')
