@@ -34,9 +34,9 @@ def train_random_forest(X_train: pd.DataFrame,
                         y_train: pd.Series,
                         y_test: pd.Series) -> dict:
     parameters = {
-        'min_samples_split': [9],
-        'min_samples_leaf': [6],
+        'min_samples_split': [10],
         'max_features': [0.5],
+        'min_samples_leaf': [10],
         'n_estimators': [130],
         'random_state': [42]
     }
@@ -53,12 +53,11 @@ def train_gradient_boosting(X_train: pd.DataFrame,
                             y_test: pd.Series) -> dict:
     parameters = {
         'max_depth': [2],
-        'min_samples_split': [25],
+        'min_samples_split': [10],
         'max_features': [0.5],
         'min_samples_leaf': [10],
         'n_estimators': [130],
-        'random_state': [42],
-        'verbose': [2]
+        'random_state': [42]
     }
 
     return _run_training(X_train, X_test, y_train, y_test,
@@ -67,8 +66,8 @@ def train_gradient_boosting(X_train: pd.DataFrame,
 
 
 ## Neural Network
-### MLP Regressor
-def train_mlp_regressor(X_train: pd.DataFrame,
+### MLP Classifier
+def train_mlp_classifier(X_train: pd.DataFrame,
                         X_test: pd.DataFrame,
                         y_train: pd.Series,
                         y_test: pd.Series) -> dict:
