@@ -11,7 +11,7 @@
   <h1 align="center">Immobilienrechner</h3>
 
   <p align="center">
-    In diesem Repository wird die Immobilienrechner Challenge des Studienganges BSc Datascience der Fachhochschule Nordwestschweiz berarbeitet.
+    In diesem Repository wird die Immobilienrechner Challenge des Studienganges BSc Data Science der Fachhochschule Nordwestschweiz berarbeitet.
     <br />
     Ziel dieser Challenge ist es mithilfe von maschinellem lernen den Preis von schweizer Immobilien vorherzusagen.
   </p>
@@ -43,13 +43,13 @@
 
 <!-- PROJEKTBESCHRIEB -->
 ### Projektbeschrieb
-Ziel dieser Challenge ist es mit gescrapten Daten verschiedene machine learning Modelle zu entwickeln und damit Preis sowie den Immobilientyp diverser schweizer Immobilien vorherzusagen.
+Ziel dieser Challenge ist es mit gescrapten Daten verschiedene machine learning Modelle zu entwickeln und damit Preis sowie den Typ diverser schweizer Immobilien vorherzusagen.
 <br />
 Das Regressionsmodell wurde an einer Kaggle-Competition eingereicht.
 <br />
-Zudem wurde ein Webservice erstellt, mit welchem man den Preis einer beliebigen Immobilie schätzen lassen kann.
+Zudem wurde ein Webservice erstellt, mit welchem den Preis einer beliebigen schweizer Immobilie in CHF schätzen lassen kann.
 <br />
-Die Modelle wurden allesamt in Python mit der Librarie scikit-learn erstellt.
+Die Modelle wurden allesamt in Python mit der Library scikit-learn erstellt.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Libraries
