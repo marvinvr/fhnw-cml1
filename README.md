@@ -5,21 +5,21 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="bilder_plots/immobilienrechner.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Immobilienrechner</h3>
+  <h2 align="center">Immobilienrechner</h3>
 
   <p align="center">
-    In diesem Repository wirddie Immobilienrechner Challange des Studienganges BSc Datascience der Fachhochschule Nordwestschweiz berarbeitet.
+    In diesem Repository wird die Immobilienrechner Challange des Studienganges BSc Datascience der Fachhochschule Nordwestschweiz berarbeitet.
     <br />
+    Ziel diese Challanges ist es mithilfe von maschinellem lernen den Preis von schweizer Immobilien vorherzusagen.
   </p>
 </div>
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary><b>Inhaltsverzeichnis</b></summary>
+  <summary><h2>Inhaltsverzeichnis<h3 /></summary>
   <ol>
     <li>
       <a href="#projektbeschrieb">Projektbeschrieb</a>
@@ -37,20 +37,20 @@
     <li><a href="#webservice">Webservice</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ol>
-</details>
+
 
 
 
 <!-- PROJEKTBESCHRIEB -->
 ### Projektbeschrieb
-Ziel dieser Challanges ist es mit gescrapten Daten verschiedene machine learning Modelle zu entwickeln und damit Preis sowie den Immobilientyp verschiedenster schweizer Immobilien vorherzusagen.
+Ziel dieser Challanges ist es mit gescrapten Daten verschiedene machine learning Modelle zu entwickeln und damit Preis sowie den Immobilientyp diverser schweizer Immobilien vorherzusagen.
 <br />
 Das Regressionsmodell wurde an einer Kaggle-Competition eingereicht.
 <br />
 Zudem wurde ein Webservice erstellt, mit welchem man den Preis einer beliebigen Immobilie schätzen lassen kann.
 <br />
 Die Modelle wurden allesamt in Python mit der Librarie scikit-learn erstellt.
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Libraries
 
@@ -62,15 +62,17 @@ Folgende Libraries wurden dafür verwendet:
 * Numpy
 * Streamlit
 * Joblib
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUFBAU -->
 ### Aufbau
-Die Jupyter-Notebooks können in Chronologische Reihenfolge ausgeführt werden.
+Die Jupyter-Notebooks können in chronologischer Reihenfolge ausgeführt werden.
 
 :file_folder: "data" -> Originale Datensätze, Datensätze für die Kaggle-competition, Web Service  <br />
 :file_folder: "helpers" -> Diverse Hilfsfunktionen,bei welchen Parameter Global verändert werden können (Pfäde/ Parameter der Modelle).<br />
 :file_folder: "linear_regression" -> Einfaches lineares Regressionsmodell zwischen den Variablen Wohnfläche und Preis. <br />
 :file_folder: "models" -> Trainiere Modelle als Pickle-Dateien hinterlegt. <br />
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Prerequisites
 
@@ -87,8 +89,6 @@ Die genauen Versionen können mit Pip aktualisiert werden.
    ```
 
 Falls du noch kein Pip installiert hast findest du [hier](https://hellocoding.de/blog/coding-language/python/pip) eine Anleitung. 
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -110,8 +110,6 @@ Folgende Modelle wurden verwendet:
 * Random Forest Klassifikator
 * XGboost Klassifikator
 * MLP Klassifikator
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
