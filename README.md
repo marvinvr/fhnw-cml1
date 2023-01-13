@@ -126,8 +126,8 @@ Um den Webservice zu starten muss folgender Befehl in einem Linux-Terminal ausge
 <!-- KONTAKT -->
 ### Kontakt
 
-Yannic Lais - [@yalais](https://github.com/yalais) <br />
-Marvin von Rappard - [@marvinvr](https://github.com/marvinvr) <br />
-Luca Mazzotta - [@focusedluca](https://github.com/focusedluca)
+:bust_in_silhouette: Yannic Lais - [@yalais](https://github.com/yalais) <br />
+:bust_in_silhouette: Marvin von Rappard - [@marvinvr](https://github.com/marvinvr) <br />
+:bust_in_silhouette: Luca Mazzotta - [@focusedluca](https://github.com/focusedluca)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
