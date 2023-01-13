@@ -35,6 +35,7 @@
       </ul>
     </li>
     <li><a href="#modelle">Modelle</a></li>
+    <li><a href="#webservice">Webservice</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -63,23 +64,45 @@ Folgende Libraries wurden dafür verwendet:
 
 * Pandas
 * scikit-learn
-* Matplotlib
-* Seaborn
-* 
+* Numpy
+* Streamlit
+* Joblib
 
 
 
 <!-- AUFBAU -->
 ### Aufbau
+Die Jupyter-Notebooks können in Chronologische Reihenfolge ausgeführt werden.
 
+:file_folder: "data" -> Originale Datensätze, Datensätze für die Kaggle-competition, Web Service  <br />
+:file_folder: "helpers" -> Diverse Hilfsfunktionen,bei welchen Parameter Global verändert werden können (Pfäde/ Parameter der Modelle).<br />
+:file_folder: "linear_regression" -> Einfaches lineares Regressionsmodell zwischen den Variablen Wohnfläche und Preis. <br />
+:file_folder: "models" -> Trainiere Modelle als Pickle-Dateien hinterlegt. <br />
 
 #### Prerequisites
+
+* joblib==1.2.0
+* numpy==1.23.5
+* pandas==1.5.2
+* scikit_learn==1.2.0
+* streamlit==1.16.0
+
+Die genauen Versionen können mit Pip aktualisiert werden.
+
+   ```sh
+   pip install "LIBRARY"=="VERSION"
+   ```
+
+Falls du noch kein Pip installiert hast findest du eine Anleitung auf [https://hellocoding.de/blog/coding-language/python/pip](https://hellocoding.de/blog/coding-language/python/pip)
+
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- MODELLE -->
 ### Modelle
 Um eine exakte Vorhersage zu treffen wurden für jeweils das Regressions- sowie das Klassifikationsproblem mehrere Modelle trainiert und verglichen.
 
@@ -102,7 +125,14 @@ Folgende Modelle wurden verwendet:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- WEBSERVICE -->
+### Webservice
+Um den Webservice zu starten muss folgender Befehl in einem Linux-Terminal ausgeführt werden.
 
+   ```sh
+   streamlit run 05_0_web_service.py
+   ```
+   
 
 <!-- CONTRIBUTING -->
 ### Contributing
