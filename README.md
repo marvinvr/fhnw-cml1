@@ -69,9 +69,9 @@ Folgende Libraries wurden dafür verwendet:
 Die Jupyter-Notebooks können in chronologischer Reihenfolge ausgeführt werden.
 
 :file_folder: "data" -> Originale Datensätze, Datensätze für die Kaggle-competition, Web Service  <br />
-:file_folder: "helpers" -> Diverse Hilfsfunktionen,bei welchen Parameter Global verändert werden können (Pfäde/ Parameter der Modelle).<br />
+:file_folder: "helpers" -> Diverse Hilfsfunktionen, bei welchen Parameter Global verändert werden können.<br />
 :file_folder: "linear_regression" -> Einfaches lineares Regressionsmodell zwischen den Variablen Wohnfläche und Preis. <br />
-:file_folder: "models" -> Trainiere Modelle als Pickle-Dateien hinterlegt. <br />
+:file_folder: "models" -> Trainierte Modelle als Pickle-Dateien hinterlegt. <br />
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Prerequisites
@@ -94,7 +94,7 @@ Falls du noch kein Pip installiert hast findest du [hier](https://hellocoding.de
 
 <!-- MODELLE -->
 ### Modelle
-Um eine exakte Vorhersage zu treffen wurden für jeweils das Regressions- sowie das Klassifikationsproblem mehrere Modelle trainiert und verglichen.
+Um eine exakte Vorhersage zu treffen wurden für jeweils das Regressions- sowie das Klassifikationsproblem mehrere Modelle trainiert und miteinander verglichen.
 
 
 Folgende Modelle wurden verwendet:
