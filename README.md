@@ -52,17 +52,6 @@ Zudem wurde ein Webservice erstellt, mit welchem den Preis einer beliebigen schw
 Die Modelle wurden allesamt in Python mit der Library scikit-learn erstellt.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-#### Libraries
-
-Das Repository wurde mit Python erstellt.
-Folgende Libraries wurden dafür verwendet:
-
-* Pandas
-* scikit-learn
-* Numpy
-* Streamlit
-* Joblib
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUFBAU -->
 ### Aufbau
@@ -75,18 +64,12 @@ Die Jupyter-Notebooks können in chronologischer Reihenfolge ausgeführt werden.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Prerequisites
+Die verwendeten Packages sind in der requirements.txt hinterlegt.
+Um die korrekten Versionen zu installieren, kann folgender Befehl ausgeführt werden:
 
-* joblib==1.2.0
-* numpy==1.23.5
-* pandas==1.5.2
-* scikit_learn==1.2.0
-* streamlit==1.16.0
-
-Die genauen Versionen können mit Pip aktualisiert werden.
-
-   ```sh
-   pip install "LIBRARY"=="VERSION"
-   ```
+```sh
+pip install -r requirements.txt
+```
 
 Falls du noch kein Pip installiert hast findest du [hier](https://hellocoding.de/blog/coding-language/python/pip) eine Anleitung. 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -102,13 +85,13 @@ Folgende Modelle wurden verwendet:
 <b>Regression:</b>
 * Ridge Regression
 * Random Forest Regressor
-* XGboost Regressor
+* XGBoost Regressor
 * MLP Regressor
 
 <b>Klassifikation:</b>
 * KNN Klassifikator
 * Random Forest Klassifikator
-* XGboost Klassifikator
+* XGBoost Klassifikator
 * MLP Klassifikator
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
