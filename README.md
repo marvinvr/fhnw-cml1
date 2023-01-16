@@ -61,6 +61,7 @@ Die Jupyter-Notebooks können in chronologischer Reihenfolge ausgeführt werden.
 :file_folder: "helpers" -> Diverse Hilfsfunktionen, bei welchen Parameter Global verändert werden können.<br />
 :file_folder: "linear_regression" -> Einfaches lineares Regressionsmodell zwischen den Variablen Wohnfläche und Preis. <br />
 :file_folder: "models" -> Trainierte Modelle als Pickle-Dateien hinterlegt. <br />
+:file_folder: "reports" -> Berichte als pdf hinterlegt. <br />
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 #### Prerequisites
