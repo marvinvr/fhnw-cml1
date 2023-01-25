@@ -86,13 +86,13 @@ Folgende Modelle wurden verwendet:
 <b>Regression:</b>
 * Ridge Regression
 * Random Forest Regressor
-* XGBoost Regressor
+* Gradient Boost Regressor
 * MLP Regressor
 
 <b>Klassifikation:</b>
 * KNN Klassifikator
 * Random Forest Klassifikator
-* XGBoost Klassifikator
+* Gradient Boost Klassifikator
 * MLP Klassifikator
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
